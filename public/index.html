@@ -470,7 +470,7 @@ document.getElementById('form-prestamo').addEventListener('submit', async (e) =>
   const libro_id = document.getElementById('p-libro').value;
   if (!usuario_id || !libro_id){ toast('Selecciona un usuario y un libro disponible', true); return; }
   try {
-    const r = await api(API.prestamos, { method:'POST', body: JSON.stringify({ usuario_id, libro_id }) });
+    const r = await api(API.prestamos, { method:'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ usuario_id, libro_id }) });
     toast(`Préstamo registrado: "${r.libro}" para ${r.usuario}`);
     await Promise.all([cargarPrestamos(), cargarLibros(), cargarSelectores(), actualizarPanel()]);
   } catch (err) { toast(err.message, true); }
