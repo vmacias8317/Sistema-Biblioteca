@@ -1,0 +1,13 @@
+{
+  "name": "biblioteca-virtual-microservicios",
+  "version": "1.0.0",
+  "description": "Biblioteca virtual con arquitectura de microservicios (Usuarios, Libros, Préstamos) en Node.js/Express",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}
