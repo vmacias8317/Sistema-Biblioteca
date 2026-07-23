@@ -421,7 +421,7 @@ document.getElementById('form-libro').addEventListener('submit', async (e) => {
   const titulo = document.getElementById('l-titulo').value.trim();
   const autor = document.getElementById('l-autor').value.trim();
   try {
-    await api(API.libros, { method:'POST', body: JSON.stringify({ titulo, autor }) });
+    await api(API.libros, { method:'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ titulo, autor }) });
     toast(`"${titulo}" añadido al catálogo`);
     e.target.reset();
     await Promise.all([cargarLibros(), actualizarPanel(), cargarSelectores()]);
